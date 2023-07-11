@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Agenda.css';
 
 interface Contato {
   nome: string;
@@ -30,7 +31,7 @@ const Agenda: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="Agenda">
       <h2>Agenda</h2>
 
       <form>

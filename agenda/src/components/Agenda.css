@@ -1,0 +1,54 @@
+.Agenda {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.Agenda h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.Agenda form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.Agenda form label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.Agenda form input {
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.Agenda form button {
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.Agenda form button:hover {
+  background-color: #45a049;
+}
+
+.Agenda table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.Agenda th,
+.Agenda td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.Agenda th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
