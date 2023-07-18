@@ -3,7 +3,7 @@ import Agenda from './components/Agenda.tsx';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <div>
       <Agenda />
     </div>
   );

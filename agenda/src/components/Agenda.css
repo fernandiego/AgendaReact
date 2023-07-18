@@ -16,7 +16,6 @@
 
 .Agenda form label {
   margin-bottom: 8px;
-  font-weight: bold;
 }
 
 .Agenda form input {
@@ -50,5 +49,4 @@
 
 .Agenda th {
   background-color: #f2f2f2;
-  font-weight: bold;
 }
