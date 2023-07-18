@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/AgendaReact.iml" filepath="$PROJECT_DIR$/.idea/AgendaReact.iml" />
+      <module fileurl="file://$PROJECT_DIR$/agenda/agenda.iml" filepath="$PROJECT_DIR$/agenda/agenda.iml" />
     </modules>
   </component>
 </project>
