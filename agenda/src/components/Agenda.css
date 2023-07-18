@@ -1,11 +1,18 @@
 .Agenda {
   max-width: 500px;
   margin: 0 auto;
+  background-color: papayawhip;
+  border-color: black;
+  border: 0.2px solid black;
+  padding: 10px;
+  font-weight: bold;
 }
 
 .Agenda h2 {
   font-size: 24px;
   margin-bottom: 16px;
+  text-align: center;
+
 }
 
 .Agenda form {
@@ -24,11 +31,15 @@
 }
 
 .Agenda form button {
-  padding: 8px 16px;
+  margin: auto;
+  padding: 15px;
   background-color: #4caf50;
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 10px; /* Rounded corners */
+  transition: background-color 0.3s ease;
+
 }
 
 .Agenda form button:hover {
@@ -39,6 +50,32 @@
   width: 100%;
   border-collapse: collapse;
 }
+
+.Agenda table button{
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+}
+
+/* ...existing CSS code... */
+
+/* Add style for the new "Remove" column */
+.Agenda td button {
+  background-color: #e74c3c; /* Red color */
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 10px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.Agenda td button:hover {
+  background-color: #c0392b; /* Darker red color on hover */
+}
+
 
 .Agenda th,
 .Agenda td {
@@ -73,5 +110,8 @@
 
 .Agenda tr:nth-child(even) {
   background-color: #ffffff;
+}
+
+.Agenda .btAdd {
 }
 

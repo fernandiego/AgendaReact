@@ -30,7 +30,7 @@ const Agenda: React.FC = () => {
         setEmail('');
     };
 
-    const removerContato = (index) => {
+    const removerContato = ({index}: { index: any }) => {
         const newContatos = [...contatos];
         newContatos.splice(index, 1);
         setContatos(newContatos);
@@ -87,7 +87,7 @@ const Agenda: React.FC = () => {
                         <td>{contato.telefone}</td>
                         <td>{contato.email}</td>
                         <td>
-                            <button onClick={() => removerContato(index)}>Remover</button>
+                            <button onClick={() => removerContato({index: index})}>Remover</button>
                         </td>
                     </tr>
                 ))}
