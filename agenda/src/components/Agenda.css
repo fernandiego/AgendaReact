@@ -50,3 +50,28 @@
 .Agenda th {
   background-color: #f2f2f2;
 }
+
+.Agenda table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.Agenda th,
+.Agenda td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.Agenda th {
+  background-color: #f2f2f2;
+}
+
+.Agenda tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.Agenda tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
