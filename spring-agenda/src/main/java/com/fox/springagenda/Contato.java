@@ -2,20 +2,22 @@ package com.fox.springagenda;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Entity
+@Table(name="contatos")
 public class Contato {
 
     @Id
-    Long id;
+    Long contatoId;
     String nome;
     String telefone;
     String email;
 
 
     public Contato(Long id, String nome, String telefone, String email) {
-        this.id = id;
+        this.contatoId = contatoId;
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
@@ -25,11 +27,11 @@ public class Contato {
     }
 
     public Long getId() {
-        return id;
+        return contatoId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.contatoId = contatoId;
     }
 
     public String getNome() {
