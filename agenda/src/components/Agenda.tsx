@@ -1,40 +1,65 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import './Agenda.css';
 
 interface Contato {
-    nome: string;
-    telefone: string;
-    email: string;
+  nome: string;
+  telefone: string;
+  email: string;
+}
+
+const initContatos = () => {
+   const storedContatos = localStorage.getItem('contatos');
+    if (storedContatos) {
+      return (JSON.parse(storedContatos));
+    }
+    else {return []}
 }
 
 const Agenda: React.FC = () => {
-    const [contatos, setContatos] = useState<Contato[]>([]);
-    const [nome, setNome] = useState('');
-    const [telefone, setTelefone] = useState('');
-    const [email, setEmail] = useState('');
+  const [contatos, setContatos] = useState<Contato[]>(initContatos());
+  const [nome, setNome] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [email, setEmail] = useState('');
 
-    const adicionarContato = () => {
-        const novoContato: Contato = {
-            nome: nome,
-            telefone: telefone,
-            email: email,
-        };
+  useEffect(() => {
+    const storedContatos = localStorage.getItem('contatos');
+    if (storedContatos) {
+      setContatos(JSON.parse(storedContatos));
+    }
+  }, []);
 
-        setContatos([...contatos, novoContato]);
-        limparFormulario();
+  const adicionarContato = () => {
+    const novoContato: Contato = {
+      nome: nome,
+      telefone: telefone,
+      email: email,
     };
 
-    const limparFormulario = () => {
-        setNome('');
-        setTelefone('');
-        setEmail('');
-    };
+    setContatos([...contatos, novoContato]);
+    limparFormulario();
+  };
 
-    const removerContato = ({index}: { index: any }) => {
-        const newContatos = [...contatos];
-        newContatos.splice(index, 1);
-        setContatos(newContatos);
-    };
+  const limparFormulario = () => {
+    setNome('');
+    setTelefone('');
+    setEmail('');
+  };
+
+  const removerContato = (index: number) => {
+    const newContatos = [...contatos];
+    newContatos.splice(index, 1);
+    setContatos(newContatos);
+  };
+
+  useEffect(() => {
+    saveContatosToLocalStorage();
+  }, [contatos]);
+
+  const saveContatosToLocalStorage = () => {
+    localStorage.setItem('contatos', JSON.stringify(contatos));
+  };
+
+
 
     return (
         <div className="Agenda">
