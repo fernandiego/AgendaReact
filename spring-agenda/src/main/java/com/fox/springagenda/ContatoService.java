@@ -9,7 +9,6 @@ import java.util.Optional;
 @Service
 public class ContatoService {
     private final ContatoRepository contatoRepository;
-    public List<Contato> getAllContatos;
 
     public ContatoService(ContatoRepository contatoRepository) {
         this.contatoRepository = contatoRepository;
