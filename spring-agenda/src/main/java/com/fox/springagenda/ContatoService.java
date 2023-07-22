@@ -1,6 +1,7 @@
 package com.fox.springagenda;
 
 import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,7 +27,6 @@ public class ContatoService {
 
     @Transactional
     public void deleteContato(Long contactId) {
-        Optional<Contato> contactOptional = contatoRepository.findById(contactId);
-        ((Optional<?>) contactOptional).ifPresent(contato -> contatoRepository.delete((Contato) contato));
+        contatoRepository.deleteById(contactId);
     }
 }

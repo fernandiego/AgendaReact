@@ -14,9 +14,13 @@ public class Contato {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     Long contatoId;
+    @Column
     String nome;
+    @Column
     String telefone;
+    @Column
     String email;
 
 

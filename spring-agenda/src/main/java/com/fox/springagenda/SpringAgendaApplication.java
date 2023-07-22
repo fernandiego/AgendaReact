@@ -13,7 +13,7 @@ public class SpringAgendaApplication {
 		ContatoService contatoService = ctx.getBean(ContatoService.class);
 
 		Contato contato = new Contato();
-		contato.nome = "Nome";
+		contato.nome = "Fernando";
 		contato.telefone = "85999154477";
 		contato.email = "fox@gmail.com";
 

@@ -36,16 +36,29 @@ const Agenda: React.FC = () => {
             });
     }, []);
 
-    const adicionarContato = () => {
-        const novoContato: Contato = {
-            nome: nome,
-            telefone: telefone,
-            email: email,
-        };
+ const adicionarContato = () => {
+  const novoContato = {
+    nome: nome,
+    telefone: telefone,
+    email: email,
+  };
 
-        setContatos([...contatos, novoContato]);
-        limparFormulario();
-    };
+  fetch('http://localhost:8080/contato', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(novoContato),
+  })
+    .then(response => response.json())
+    .then(data => {
+      // Assuming the response data contains the added contact
+      setContatos([...contatos, data]);
+      limparFormulario();
+    })
+    .catch(error => console.error('Error adding contact:', error));
+};
+
 
     const limparFormulario = () => {
         setNome('');
