@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin("*")
 @RequestMapping("/contato")
 public class ContatoController {
 
@@ -27,7 +26,7 @@ public class ContatoController {
         return contatoService.getAllContatos();
     }
 
-    @DeleteMapping
+    @DeleteMapping("{contatoId}")
     public void deleteContato(@PathVariable Long contatoId) {
         contatoService.deleteContato(contatoId);
     }

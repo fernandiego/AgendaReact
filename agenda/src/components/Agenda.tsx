@@ -36,28 +36,28 @@ const Agenda: React.FC = () => {
             });
     }, []);
 
- const adicionarContato = () => {
-  const novoContato = {
-    nome: nome,
-    telefone: telefone,
-    email: email,
-  };
+    const adicionarContato = () => {
+        const novoContato = {
+            nome: nome,
+            telefone: telefone,
+            email: email,
+        };
 
-  fetch('http://localhost:8080/contato', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(novoContato),
-  })
-    .then(response => response.json())
-    .then(data => {
-      // Assuming the response data contains the added contact
-      setContatos([...contatos, data]);
-      limparFormulario();
-    })
-    .catch(error => console.error('Error adding contact:', error));
-};
+        fetch('http://localhost:8080/contato', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(novoContato),
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Assuming the response data contains the added contact
+                setContatos([...contatos, data]);
+                limparFormulario();
+            })
+            .catch(error => console.error('Error adding contact:', error));
+    };
 
 
     const limparFormulario = () => {
@@ -66,11 +66,21 @@ const Agenda: React.FC = () => {
         setEmail('');
     };
 
-    const removerContato = (index: number) => {
-        const newContatos = [...contatos];
-        newContatos.splice(index, 1);
-        setContatos(newContatos);
+    // @ts-ignore
+    const removerContato = (index) => {
+        const contatoIdToRemove = contatos[index].contatoId;
+
+        fetch(`http://localhost:8080/contato/${contatoIdToRemove}`, {
+            method: 'DELETE',
+        })
+            .then(() => {
+                const newContatos = [...contatos];
+                newContatos.splice(index, 1);
+                setContatos(newContatos);
+            })
+            .catch(error => console.error('Error removing contact:', error));
     };
+
 
     useEffect(() => {
         saveContatosToLocalStorage();
